@@ -20,12 +20,3 @@ public struct FeedItem: Sendable, Equatable {
         self.imageUrl = imageUrl
     }
 }
-
-extension FeedItem: Decodable {
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case description
-        case location
-        case imageUrl = "image"
-    }
-}
