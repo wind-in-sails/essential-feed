@@ -99,10 +99,19 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
 
     // MARK: - Helpers
-    private func makeSUT(url: URL = URL(string: "https://example.com")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
+    private func makeSUT(url: URL = URL(string: "https://example.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
+
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(client)
         return (sut, client)
+    }
+
+    private func trackForMemoryLeaks(_ instanse: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instanse] in
+            XCTAssertNil(instanse, "Instanse should be deallocated", file: file, line: line)
+        }
     }
 
     private func makeItem(
@@ -160,6 +169,10 @@ final class RemoteFeedLoaderTests: XCTestCase {
         func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
             let response = HTTPURLResponse(url: messages[index].url, statusCode: code, httpVersion: nil, headerFields: nil)!
             messages[index].completion(.success(data, response))
+        }
+
+        deinit {
+            print("Spy deinited")
         }
     }
 }
