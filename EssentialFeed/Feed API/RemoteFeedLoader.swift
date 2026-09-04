@@ -29,7 +29,7 @@ public final class RemoteFeedLoader: FeedLoader {
             switch result {
             case let .success(data, response):
                 completion(FeedItemsMapper.map(data, from: response))
-            case .error:
+            case .failure:
                 completion(.failure(Error.connectivity))
             }
         }
