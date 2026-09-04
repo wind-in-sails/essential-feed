@@ -38,7 +38,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     }
 
     func test_getFromURL_performsGETRequestWithURL() {
-        let givenURL = URL(string: "https://a-url.com")!
+        let givenURL = URL(string: "https://a-url.com/")!
 
         let exp = expectation(description: "wait for completion")
         URLProtocolStub.observeRequest { request in
@@ -73,9 +73,18 @@ final class URLSessionHTTPClientTests: XCTestCase {
     }
 
     // MARK: -Helpers
-    private func makeSUT() -> URLSessionHTTPClient {
-        URLSessionHTTPClient()
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> URLSessionHTTPClient {
+        let sut = URLSessionHTTPClient()
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return sut
     }
+
+    private func trackForMemoryLeaks(_ instanse: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instanse] in
+            XCTAssertNil(instanse, "Instanse should be deallocated", file: file, line: line)
+        }
+    }
+
     private class URLProtocolStub: URLProtocol, @unchecked Sendable {
         private static var stub: Stub?
         private static var requestObserver: ((URLRequest) -> Void)?
@@ -99,8 +108,8 @@ final class URLSessionHTTPClientTests: XCTestCase {
 
         static func stopInterceptingRequests() {
             URLProtocol.unregisterClass(URLProtocolStub.self)
-            stub = nil
             requestObserver = nil
+            stub = nil
         }
 
         override class func canInit(with request: URLRequest) -> Bool {
