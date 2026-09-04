@@ -123,12 +123,6 @@ final class RemoteFeedLoaderTests: XCTestCase {
         return .failure(error)
     }
 
-    private func trackForMemoryLeaks(_ instanse: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instanse] in
-            XCTAssertNil(instanse, "Instanse should be deallocated", file: file, line: line)
-        }
-    }
-
     private func makeItem(
         id: UUID,
         description: String? = nil,
