@@ -189,9 +189,5 @@ final class RemoteFeedLoaderTests: XCTestCase {
             let response = HTTPURLResponse(url: messages[index].url, statusCode: code, httpVersion: nil, headerFields: nil)!
             messages[index].completion(.success(data, response))
         }
-
-        deinit {
-            print("Spy deinited")
-        }
     }
 }
