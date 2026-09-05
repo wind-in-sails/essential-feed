@@ -132,13 +132,13 @@ final class RemoteFeedLoaderTests: XCTestCase {
                 id: id,
                 description: description,
                 location: location,
-                imageUrl: imageUrl
+                imageURL: imageUrl
             )
             let json = [
                 "id": item.id.uuidString,
                 "description": item.description,
                 "location": item.location,
-                "image": item.imageUrl.absoluteString
+                "image": item.imageURL.absoluteString
             ].compactMapValues { $0 }
             return(item, json)
         }
