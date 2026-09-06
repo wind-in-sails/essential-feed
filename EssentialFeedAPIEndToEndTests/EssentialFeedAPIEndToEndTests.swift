@@ -12,16 +12,16 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
 
     func test_endToEndTestServerGETFeedResult_matchesFixedTestAccountData() {
         switch getFeedResult() {
-        case let .success(items):
-            XCTAssertEqual(items.count, 8, "Expected 8 items in the test account feed")
-            XCTAssertEqual(items[0], expectingItem(index: 0))
-            XCTAssertEqual(items[1], expectingItem(index: 1))
-            XCTAssertEqual(items[2], expectingItem(index: 2))
-            XCTAssertEqual(items[3], expectingItem(index: 3))
-            XCTAssertEqual(items[4], expectingItem(index: 4))
-            XCTAssertEqual(items[5], expectingItem(index: 5))
-            XCTAssertEqual(items[6], expectingItem(index: 6))
-            XCTAssertEqual(items[7], expectingItem(index: 7))
+        case let .success(imageFeed):
+            XCTAssertEqual(imageFeed.count, 8, "Expected 8 images in the test account image feed")
+            XCTAssertEqual(imageFeed[0], expectingImage(index: 0))
+            XCTAssertEqual(imageFeed[1], expectingImage(index: 1))
+            XCTAssertEqual(imageFeed[2], expectingImage(index: 2))
+            XCTAssertEqual(imageFeed[3], expectingImage(index: 3))
+            XCTAssertEqual(imageFeed[4], expectingImage(index: 4))
+            XCTAssertEqual(imageFeed[5], expectingImage(index: 5))
+            XCTAssertEqual(imageFeed[6], expectingImage(index: 6))
+            XCTAssertEqual(imageFeed[7], expectingImage(index: 7))
         case let .failure(error):
             XCTFail("Expected success but got \(error) instead")
         default:
@@ -45,12 +45,12 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
         wait(for: [exp], timeout: 5.0)
         return receivedResult
     }
-    private func expectingItem(index: Int) -> FeedItem {
-        return FeedItem(
+    private func expectingImage(index: Int) -> FeedImage {
+        return FeedImage(
             id: id(at: index),
             description: description(at: index),
             location: location(at: index),
-            imageURL: imageURL(at: index)
+            url: imageURL(at: index)
         )
     }
 

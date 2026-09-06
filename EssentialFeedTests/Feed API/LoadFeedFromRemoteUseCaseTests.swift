@@ -127,18 +127,18 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         id: UUID,
         description: String? = nil,
         location: String? = nil,
-        imageUrl: URL) -> (model: FeedItem, json: [String: Any]) {
-            let item = FeedItem(
+        imageUrl: URL) -> (model: FeedImage, json: [String: Any]) {
+            let item = FeedImage(
                 id: id,
                 description: description,
                 location: location,
-                imageURL: imageUrl
+                url: imageUrl
             )
             let json = [
                 "id": item.id.uuidString,
                 "description": item.description,
                 "location": item.location,
-                "image": item.imageURL.absoluteString
+                "image": item.url.absoluteString
             ].compactMapValues { $0 }
             return(item, json)
         }
