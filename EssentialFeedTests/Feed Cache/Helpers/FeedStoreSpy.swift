@@ -20,7 +20,7 @@ class FeedStoreSpy: FeedStore {
         case retrieve
     }
 
-    func deleteCacheFeed(completion: @escaping DeletionCompletion) {
+    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         deletionCompltions.append(completion)
         receivedMessages.append(.deleteCachedFeed)
     }
@@ -37,7 +37,7 @@ class FeedStoreSpy: FeedStore {
         insertionCompltions[index](nil)
     }
 
-    func insertItems(_ items: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+    func insert(_ items: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
         insertionCompltions.append(completion)
         receivedMessages.append(.insert(items, timestamp))
     }
