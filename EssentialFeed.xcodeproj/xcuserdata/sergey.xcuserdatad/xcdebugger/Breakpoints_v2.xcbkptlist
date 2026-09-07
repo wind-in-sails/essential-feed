@@ -14,8 +14,8 @@
             filePath = "EssentialFeedTests/Feed Cache/CodableFeedStoreTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "insertItems(_:timestamp:completion:)"
             landmarkType = "7">
          </BreakpointContent>
