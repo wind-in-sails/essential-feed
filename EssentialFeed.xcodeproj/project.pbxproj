@@ -58,6 +58,8 @@
 		A5E0124F3055BBFE002D3FA5 /* Exceptions for "EssentialFeedTests" folder in "EssentialFeedCacheIntegrationTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Feed Cache/Helpers/FeedCacheTestHelpers.swift",
+				Helpers/SharedTestHelpers.swift,
 				"Helpers/XCTCase+MemoryLeakTracking.swift",
 			);
 			target = A5E012423055229B002D3FA5 /* EssentialFeedCacheIntegrationTests */;
