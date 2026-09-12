@@ -10,7 +10,8 @@
   ],
   "defaultOptions" : {
     "codeCoverage" : false,
-    "performanceAntipatternCheckerEnabled" : true
+    "performanceAntipatternCheckerEnabled" : true,
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
@@ -27,6 +28,13 @@
         "containerPath" : "container:EssentialFeed.xcodeproj",
         "identifier" : "A519F9653040481F00A00551",
         "name" : "EssentialFeedTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "A5E012423055229B002D3FA5",
+        "name" : "EssentialFeedCacheIntegrationTests"
       }
     }
   ],
