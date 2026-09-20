@@ -59,20 +59,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A50DEAFE305FC5AC00F4C1AA /* Exceptions for "EssentialFeed" folder in "EssentialFeed" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Feed Cache/Infrastructure/Codable/CodableFeedStore.swift",
-			);
-			target = A519F95C3040481F00A00551 /* EssentialFeed */;
-		};
-		A50DEAFF305FC5F800F4C1AA /* Exceptions for "EssentialFeedTests" folder in "EssentialFeedTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Feed Cache/CodableFeedStoreTests.swift",
-			);
-			target = A519F9653040481F00A00551 /* EssentialFeedTests */;
-		};
 		A5A83233304C831100E41118 /* Exceptions for "EssentialFeedTests" folder in "EssentialFeedAPIEndToEndTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -103,18 +89,19 @@
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
 		};
+		A50DEB00305FC66300F4C1AA /* Archive */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Archive;
+			sourceTree = "<group>";
+		};
 		A519F95F3040481F00A00551 /* EssentialFeed */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				A50DEAFE305FC5AC00F4C1AA /* Exceptions for "EssentialFeed" folder in "EssentialFeed" target */,
-			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
 		};
 		A519F96A3040481F00A00551 /* EssentialFeedTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A50DEAFF305FC5F800F4C1AA /* Exceptions for "EssentialFeedTests" folder in "EssentialFeedTests" target */,
 				A5A83233304C831100E41118 /* Exceptions for "EssentialFeedTests" folder in "EssentialFeedAPIEndToEndTests" target */,
 				A5E0124F3055BBFE002D3FA5 /* Exceptions for "EssentialFeedTests" folder in "EssentialFeedCacheIntegrationTests" target */,
 			);
@@ -186,6 +173,7 @@
 		A519F9533040481F00A00551 = {
 			isa = PBXGroup;
 			children = (
+				A50DEB00305FC66300F4C1AA /* Archive */,
 				A50DEAFD305FB92600F4C1AA /* EssentialFeediOS.xctestplan */,
 				A50DEAE2305F662900F4C1AA /* EssentialFeedAPIEndToEndTests.xctestplan */,
 				A5E0124D305522D1002D3FA5 /* EssentialFeedCacheIntegrationTests.xctestplan */,
